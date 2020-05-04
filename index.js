@@ -5,6 +5,7 @@ var log = console.log;
 var answerArray = [];
 var mKey, scaleDegree;
 var correctAnswer;
+const chalk = require('chalk');
 
 
 //Solfredge Dictionary [Major, ]
@@ -74,9 +75,10 @@ async function easyDegreeRandomizer(){
     //Return the Solfrege Syllable by looking at the dictionary
     soul = solfrege[0];
     answerArray[0] = solfrege[0][scaleDegree];
-    //log(`Solfrege: ${answerArray[0]}`);
+    //log(`Solfrege: ${answerArray[0]}`)
 }
 //Populate Minor Key Table 
+//Ran out of time did not use 
 function populateMinor(){
     let i =0; 
     for (let [key, value] of Object.entries(scale.Major)){
@@ -90,8 +92,10 @@ function possibleAnswers(){
     //log('possibleAnswers')
     for(let i = 1; i < 5;){
         //log('\n')
+        chalk.yellow("Game Loading")
         let possibleGuess = Math.floor(Math.random() * scale.allNotes.length-1);
         possibleGuess = (scale.allNotes[possibleGuess]);
+
 
         //Determine if the 'wrong answer' goes into the array by comparing 
         //rolled item to the items in the array
@@ -112,18 +116,21 @@ function possibleAnswers(){
 function returnAnswerArray(){
     return answerArray;
 }
+function returnTitleScreen(){
+    return chalk.blue('Are you ready to guess the Solfrege Syllable?')
+}
 
 var gameStart =[{
     type:'confirm',
     name: 'title',
-    message: 'Welcome to FiMiTi! \nAre you ready to guess the Solfrege Syllable?',
+    message: returnTitleScreen(),
     default: true
 },];
 
 var staticDo =[{
     type: 'list',
     name: 'What is the Solfrege Syllable?',
-    message: 'Name the Syllable!',
+    message: 'Name the Scale Degree Solfrege Syllable!',
     choices: returnAnswerArray(),
     default: answerArray[0],
     },{
@@ -154,7 +161,7 @@ function startGame(){
 function gameBreak(){
     easyDegreeRandomizer(); 
     possibleAnswers();
-    log(`Key Signature: ${mKey} \nScale Degree: ${scaleDegree}`);
+    log(`Key Signature: ${mKey} Major \nScale Degree: ${scaleDegree}`);
     startGame1();
 }
 
@@ -176,7 +183,7 @@ function startGame1() {
             console.log('TTY Error\n')
         }
         else {
-            log('broke2');
+            log('Error Encountered. Restarting Game!');
             initializeGame();
         }
     })
