@@ -1,54 +1,55 @@
+
 //Using npm inquirer && chalk
 var readlineSync = require('readline-sync');
 var inquirer = require('inquirer');
 var log = console.log;
-var answerArray = [];
-var mKey, scaleDegree;
-var correctAnswer;
+// var answerArray = [];
+// var mKey, scaleDegree;
+// var correctAnswer;
 
 
 //Solfredge Dictionary [Major, ]
-let solfrege = [{
-    'C': "Do",
-    'C#': "Di",
-    'Db': "Ra",
-    'D': "Re",
-    'D#': "Ri",
-    'Eb': "Me",
-    'E': "Mi",
-    'F': "Fa",
-    'Fb': "Fo",
-    'F#': "Fi",
-    'Gb': "Sal",
-    'G': "Sol",
-    'G#': "Si",
-    'Ab': "Le",
-    'A': "La",
-    'A#': "Li",
-    'Bb': "Ta",
-    'B': "Ti",
-},
-{
-    minor: ['A', 'E', 'B', 'F', 'F#', 'C#', 'G#', 'Bb'],
-}
-]
+// let solfrege = [{
+//     'C': "Do",
+//     'C#': "Di",
+//     'Db': "Ra",
+//     'D': "Re",
+//     'D#': "Ri",
+//     'Eb': "Me",
+//     'E': "Mi",
+//     'F': "Fa",
+//     'Fb': "Fo",
+//     'F#': "Fi",
+//     'Gb': "Sal",
+//     'G': "Sol",
+//     'G#': "Si",
+//     'Ab': "Le",
+//     'A': "La",
+//     'A#': "Li",
+//     'Bb': "Ta",
+//     'B': "Ti",
+// },
+// {
+//     minor: ['A', 'E', 'B', 'F', 'F#', 'C#', 'G#', 'Bb'],
+// }
+// ]
 //Scale = Major | Minor | Harmonic Minor Scale Degree
-let scale = {
-    allNotes: ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'],
-    Major: {
-        'C': ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
-        'G': ['G', 'A', 'B', 'C', 'D', 'E', 'F#'],
-        'D': ['D', 'E', 'F#', 'G#', 'A', 'B', 'C#'],
-        'A': ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
-        'E': ['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#'],
-        'B': ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#'],
-        'F#': ['F#', 'G#', 'A#', 'B', 'C#', 'D#', ' E'],
-        'Db': ['Db', 'Eb', 'F', 'Gb', 'Ab', 'Bb', 'C'],
-    },
-    Minor:{} //Should be based on it's relative Major Scale
-}
+// let scale = {
+//     allNotes: ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'],
+//     Major: {
+//         'C': ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
+//         'G': ['G', 'A', 'B', 'C', 'D', 'E', 'F#'],
+//         'D': ['D', 'E', 'F#', 'G#', 'A', 'B', 'C#'],
+//         'A': ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'],
+//         'E': ['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#'],
+//         'B': ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#'],
+//         'F#': ['F#', 'G#', 'A#', 'B', 'C#', 'D#', ' E'],
+//         'Db': ['Db', 'Eb', 'F', 'Gb', 'Ab', 'Bb', 'C'],
+//     },
+//     Minor:{} //Should be based on it's relative Major Scale
+// }
 //Easy Lvl || Major Scale Randomizer || Add Minor Randomizer 
-async function easyDegreeRandomizer(){ 
+function easyDegreeRandomizer(){ 
     
     let feel = Math.floor(Math.random());
     switch(feel){
@@ -87,8 +88,7 @@ function populateMinor(){
 }
 //Function to generate 'wrong answers'
 function possibleAnswers(){
-    //log('possibleAnswers')
-    for(let i = 1; i < 5;){
+    for(let i = 1; i < 4;){
         //log('\n')
         let possibleGuess = Math.floor(Math.random() * scale.allNotes.length-1);
         possibleGuess = (scale.allNotes[possibleGuess]);
@@ -99,10 +99,7 @@ function possibleAnswers(){
             //console.log("rerolling");
         }
         else{
-            answerArray[i] = solfrege[0][possibleGuess];    
-            //log(answerArray);      
-            //log(`Possible Item iteration: ${i}`);
-            //log(`Not the same, placing  ${possibleGuess} into Answer Array`);    
+            answerArray[i] = solfrege[0][possibleGuess];     
             i++;
         }
     }
