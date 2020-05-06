@@ -104,7 +104,7 @@ function possibleAnswers(){
         }
     }
     correctAnswer = answerArray[0];
-    //answerArray = answerArray.sort();
+    answerArray = answerArray.sort();
 }
 function returnAnswerArray(){
     return answerArray;
