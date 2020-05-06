@@ -1,6 +1,5 @@
 
 //Using npm inquirer && chalk
-var readlineSync = require('readline-sync');
 var inquirer = require('inquirer');
 var log = console.log;
 // var answerArray = [];
@@ -77,6 +76,10 @@ function easyDegreeRandomizer(){
     answerArray[0] = solfrege[0][scaleDegree];
     //log(`Solfrege: ${answerArray[0]}`);
 }
+
+function singleDegreeConverter(note){
+    return solfrege[0][note];
+}
 //Populate Minor Key Table 
 function populateMinor(){
     let i =0; 
@@ -92,19 +95,30 @@ function possibleAnswers(){
         //log('\n')
         let possibleGuess = Math.floor(Math.random() * scale.allNotes.length-1);
         possibleGuess = (scale.allNotes[possibleGuess]);
-
+        possibleGuess = singleDegreeConverter(possibleGuess);
         //Determine if the 'wrong answer' goes into the array by comparing 
-        //rolled item to the items in the array
-        if(answerArray[i] == possibleGuess){
-            //console.log("rerolling");
+        let a = () => {
+            for(let j=0; j < answerArray.length; j++){
+                if(answerArray[j] == possibleGuess){ 
+                    return false;
+                } 
+
+                else if(j == answerArray.length-1){
+                    return true;
+                }
+            }
         }
-        else{
-            answerArray[i] = solfrege[0][possibleGuess];     
+        
+        if(!a()) { 
+            console.log("rerolling")
+        }else{
+            answerArray[i] = possibleGuess;     
             i++;
         }
     }
     correctAnswer = answerArray[0];
     answerArray = answerArray.sort();
+
 }
 function returnAnswerArray(){
     return answerArray;

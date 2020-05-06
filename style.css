@@ -1,30 +1,76 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Open Sans', sans-serif;
 }
 body{
     max-width: 1024px;
-    margin: auto;
+
+
 }
+
+/*----- Header -----*/
 .header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width:100%;
-    background-color: antiquewhite;
+    width:100vw;
+    background-image: linear-gradient(#6B70FF, #8F96FF);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: white;
 }
+.menu{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding:10px 10px 10px 10px;
+
+}
+.menu > li {
+    border:1px solid black;
+    padding: 10px;
+    margin: 0 10px 0 10px;
+    
+
+}
+
+
+/*----- Body -----*/
 .main{
-    background-color: aquamarine;
+    left:50%;
+    width: 100vw;
+    padding: 24px;
 }
-.game{
+.main > div{
+    background-color: aquamarine;
+    border: 1px solid black;
+    width: 60%;
+    max-width: 880px;
+    padding: 12px;
+    margin: 0 auto 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.welcome{
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+.game{
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    display: none;
+    margin: 32px auto 0 auto;
+}
+.prompt-detail{
+    
 }
 .user-choice{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 520px;
     border: 1px solid black;
 
 }
@@ -34,4 +80,7 @@ body{
     min-width: 80px;
     border: 1px solid black;
     border-radius: 10%;
+    margin: 10px 24px 10px 24px;
+    text-align: center;
+    top: 50%;  
 }
