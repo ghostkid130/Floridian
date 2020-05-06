@@ -30,7 +30,7 @@ let solfrege = [{
     minor: ['A', 'E', 'B', 'F', 'F#', 'C#', 'G#', 'Bb'],
 }];
 let scale = {
-    allNotes: ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'],
+    allNotes: ['Ab', 'A', 'A#', 'B', 'Bb', 'C', 'C#', 'D', 'D#', 'Eb','E', 'F', 'F#', 'Gb', 'G', 'G#'],
     Major: {
         'C': ['C', 'D', 'E', 'F', 'G', 'A', 'B'],
         'G': ['G', 'A', 'B', 'C', 'D', 'E', 'F#'],
@@ -51,12 +51,10 @@ const beginGame = () => {
 
     easyDegreeRandomizer();
     possibleAnswers();
-    console.log(correctAnswer);
     
     //Set's Key Signature
     let parent = document.querySelectorAll(".prompt-detail h2");
-    parent[0].innerHTML = `Key Signature: ${mKey} Major`;
-    parent[1].innerHTML = `Scale Degree: ${scaleDegree}`;
+    parent[0].innerHTML = `Key Signature: ${mKey} Major \&emsp;\&emsp;\&emsp; Scale Degree: ${scaleDegree}`;
     
     //Sets the User's choice
     let child = document.querySelectorAll(".user-choice h1");
@@ -65,9 +63,10 @@ const beginGame = () => {
         child[i].style.backgroundColor = "";
         child[i].innerText = answerArray[i]
         child[i].onclick = function(){ checkValue(child[i]) };
-        console.log(i)
-        console.log(`Correct Answer is: ${correctAnswer}`)
     }
+
+    //Shows Game Element
+    document.getElementById("gameContainer").style.display = "flex"
 }
 
 const checkValue = (guess) => {
