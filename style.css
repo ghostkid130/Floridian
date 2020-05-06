@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    max-width: 1024px;
+    margin: auto;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:100%;
+    background-color: antiquewhite;
+}
+.main{
+    background-color: aquamarine;
+}
+.game{
+    display: flex;
+    flex-direction: column;
+}
+.user-choice{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 520px;
+    border: 1px solid black;
+
+}
+.user-choice > h1 {
+    height: 80px;
+    max-width: 120px;
+    min-width: 80px;
+    border: 1px solid black;
+    border-radius: 10%;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiMiTi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <h1>FiMiTi</h1>
+        <h4>About</h4>
+    </header>
+
+    <main class="main">
+        <h2>Welcome to FiMiTi</h2>
+        <p>Objective: Guess the correct Solfrege Syllable based on the provided scale degree</p>
+        <button id="begin" onclick="beginGame()">Begin Game</button>
+        <div class="game" id="gameContainer">
+            <div class="prompt-detail"> 
+                <h2>Key Signature: </h2>
+                <h2>Scale Degree: </h2>
+            </div>
+            <div class="user-choice">
+                <h1>Do</h1>
+                <h1>Re</h1>
+                <h1>Mi</h1>
+                <h1>Fa</h1>
+            </div>
+            <p id="userStatus"></p>
+           
+
+        </div>
+    </main>
+   
+    <script src="game.js"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>
